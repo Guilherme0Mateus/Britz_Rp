@@ -1,0 +1,27 @@
+ABRA O XAMPP
+CLIQUE EM EXPLORE
+APAGUE O HTDOCS DE LA E COLOCA ESTE
+
+
+ABRIR A PORTA 80, 8080, 30110 TCP E UDP NO FIREWALL DO SEU SERVIDOR
+
+vai em nation_concessionaria/ config.lua e coloque o ip da vps na linha 31 EM seuip
+OBS: SE FOR LOCAL HOST OU SEU PC, O IP É 127.0.0.1
+
+
+vai em scripts/ nyo_tatto abra html/ em ui.js nas linhas 53 e 86 em seuip coloque o ip da vps 
+OBS: SE FOR LOCAL HOST OU SEU PC, O IP É 127.0.0.1
+
+TROCAR A LOGO DO INVENTARIO: VAI EM NAV/ISANE_INVENTORY/NUI EM INDEX.HTML NA LINHA 20 COLOQUE A URL DA SUA LOGO EM PNG.
+
+LOGO DO LOADING: VAI EM \BASESP\resources\[vrp]\vrp_loading\img EM LOGO COLOQUE A SUA! 
+TROCAR O VIDEO: \BASESP\resources\[vrp]\vrp_loading EM INDEX.HTML NA LINHA 57 COLOQUE O SEU VIDEO DO YOUTUBE! 
+
+
+PRONTO BEIJOS DO DARIX
+
+Quer scripts de graça entra no nosso discord https://discord.gg/BaEeu8M
+  ___                               _      _             _           ___   _               __  __     ___              _          _        
+  / __|  ___   _ __    _  _   _ _   (_)  __| |  __ _   __| |  ___    | __| (_) __ __  ___  |  \/  |   / __|  __   _ _  (_)  _ __  | |_   ___
+ | (__  / _ \ | '  \  | || | | ' \  | | / _` | / _` | / _` | / -_)   | _|  | | \ V / / -_) | |\/| |   \__ \ / _| | '_| | | | '_ \ |  _| (_-<
+  \___| \___/ |_|_|_|  \_,_| |_||_| |_| \__,_| \__,_| \__,_| \___|   |_|   |_|  \_/  \___| |_|  |_|   |___/ \__| |_|   |_| | .__/  \__| /__/
