@@ -1,0 +1,162 @@
+local Tunnel = module("vrp","lib/Tunnel")
+local Proxy = module("vrp","lib/Proxy")
+emP = Tunnel.getInterface("emp_desmanche")
+vRP = Proxy.getInterface("vRP")
+-----------------------------------------------------------------------------------------------------------------------------------------
+-- VARIAVEIS
+-----------------------------------------------------------------------------------------------------------------------------------------
+local segundos = 0
+local roubando = false
+-----------------------------------------------------------------------------------------------------------------------------------------
+-- LOCAIS
+-----------------------------------------------------------------------------------------------------------------------------------------
+local locais = {
+	{ ['x'] = -560.92, ['y'] = -1687.31, ['z'] = 19.29, ['perm'] = "desmanche.permissao" }
+}
+-----------------------------------------------------------------------------------------------------------------------------------------
+-- DESMANCHE
+-----------------------------------------------------------------------------------------------------------------------------------------
+Citizen.CreateThread(function()
+	while true do
+		local idle = 500
+		if not roubando then
+			idle = 5
+			for _,v in pairs(locais) do
+				local ped = PlayerPedId()
+				local x,y,z = table.unpack(v)
+				local distance = GetDistanceBetweenCoords(GetEntityCoords(ped),v.x,v.y,v.z)
+				if distance <= 50 and GetPedInVehicleSeat(GetVehiclePedIsUsing(ped),-1) == ped then
+					DrawMarker(23,v.x,v.y,v.z-0.96,0,0,0,0,0,0,5.0,5.0,0.5,255,0,0,50,0,0,0,0)
+					if distance <= 3.1 and IsControlJustPressed(0,38) then
+						if emP.checkVehicle() and emP.checkPermission(v.perm) then
+							roubando = true
+							segundos = 40
+							FreezeEntityPosition(GetVehiclePedIsUsing(ped),true)
+							repeat
+								Citizen.Wait(10)
+							until segundos == 0
+							TriggerServerEvent("desmancharveiculo")
+							roubando = false
+						end
+					end
+				end
+			end
+		end
+		Citizen.Wait(idle)
+	end
+end)
+
+-----------------------------------------------------------------------------------------------------------------------------------------
+-- TEXTO
+-----------------------------------------------------------------------------------------------------------------------------------------
+
+Citizen.CreateThread(function()
+	while true do
+		local idle = 500
+		local veh = GetVehiclePedIsIn(GetPlayerPed(-1), false)
+		if roubando then
+			idle = 5
+			if segundos >= 33 then
+				DisableControlAction(0,75)	
+			elseif segundos > 19 and segundos < 33 then
+				Citizen.Wait(2000)
+				TriggerEvent("Notify","bom","Abrindo a Porta da Frente Direita.")
+				SetVehicleDoorOpen(veh,0,0,0)
+				Citizen.Wait(2000)
+				TriggerEvent("Notify","bom","Abrindo a Porta da Frente Esquerda.")	
+				SetVehicleDoorOpen(veh,1,0,0)
+				Citizen.Wait(2000)
+				TriggerEvent("Notify","bom","Abrindo a Porta da Traseira Direita.")	
+				SetVehicleDoorOpen(veh,2,0,0)
+				Citizen.Wait(2000)
+				TriggerEvent("Notify","bom","Abrindo a Porta da Traseira Esquerda.")	
+				SetVehicleDoorOpen(veh,3,0,0)
+				Citizen.Wait(2000)
+				TriggerEvent("Notify","bom","Abrindo o Capo.")	
+				SetVehicleDoorOpen(veh,4,0,0)
+				Citizen.Wait(2000)
+				TriggerEvent("Notify","bom","Abrindo o o Porta Mala.")	
+				SetVehicleDoorOpen(veh,5,0,0)
+				Citizen.Wait(2000)
+				SetVehicleDoorOpen(veh,6,0,0)
+			elseif segundos <= 16 and segundos >= 4 then
+				SetVehicleDoorBroken(veh, 0	, false)
+				Citizen.Wait(2000)
+				SetVehicleDoorBroken(veh, 1	, false)
+				Citizen.Wait(2000)
+				SetVehicleDoorBroken(veh, 2	, false)
+				Citizen.Wait(2000)
+				SetVehicleDoorBroken(veh, 3	, false)
+				Citizen.Wait(2000)
+				SetVehicleDoorBroken(veh, 4	, false)
+				Citizen.Wait(2000)
+				SetVehicleDoorBroken(veh, 5	, false)
+				Citizen.Wait(2000)
+				SetVehicleDoorBroken(veh, 6	, false)
+				Citizen.Wait(2000)
+				TriggerEvent("Notify","bom","Veiculo desmontado.")
+				TriggerEvent("Notify","importante","Dinheiro e peças recebidas.")
+			end
+		end
+		Citizen.Wait(idle)
+	end
+end)
+
+Citizen.CreateThread(function()
+	while true do
+		local idle = 500
+		local veh = GetVehiclePedIsIn(GetPlayerPed(-1), false)
+		if roubando then
+			idle = 5
+			if segundos >= 33 then
+				drarola("AGUARDE ~g~"..segundos.." SEGUNDOS~w~, ESTAMOS DESATIVANDO O ~y~RASTREADOR ~w~DO VEÍCULO",4,0.50,0.87,0.50,255,255,255,180)
+			elseif segundos > 19 and segundos < 33 then
+				drarola("AGUARDE ~g~"..segundos.." SEGUNDOS~w~, ESTAMOS CALCULANDO PEÇAS",4,0.50,0.87,0.50,255,255,255,180)
+			elseif segundos < 19 and segundos > 16 then
+				drarola("AGUARDE ~g~"..segundos.." SEGUNDOS~w~, PEÇAS CALCULADAS",4,0.50,0.87,0.50,255,255,255,180)
+			elseif segundos <= 16 and segundos >= 4 then
+				drarola("AGUARDE ~g~"..segundos.." SEGUNDOS~w~, DESMANCHANDO ",4,0.50,0.87,0.50,255,255,255,180)
+			elseif segundos < 4 then
+				drarola("AGUARDE ~g~"..segundos.." SEGUNDOS~w~, FINALIZANDO DESMANCHE ",4,0.50,0.87,0.50,255,255,255,180)
+			end
+		end
+		Citizen.Wait(idle)
+	end
+end)
+
+-----------------------------------------------------------------------------------------------------------------------------------------
+-- DIMINUINDO O TEMPO
+-----------------------------------------------------------------------------------------------------------------------------------------
+Citizen.CreateThread(function()
+	while true do
+		local idle = 500
+		if roubando then
+			idle = 5
+			if segundos > 0 then
+				segundos = segundos - 1
+			end
+		end
+		Citizen.Wait(idle)
+	end
+end)
+-----------------------------------------------------------------------------------------------------------------------------------------
+-- FUNÇÕES
+-----------------------------------------------------------------------------------------------------------------------------------------
+function drarola(text,font,x,y,scale,r,g,b,a)
+	SetTextFont(font)
+	SetTextScale(scale,scale)
+	SetTextColour(r,g,b,a)
+	SetTextOutline()
+	SetTextCentre(1)
+	SetTextEntry("STRING")
+	AddTextComponentString(text)
+	DrawText(x,y)
+end
+
+
+
+function ShowNotification( text )
+    SetNotificationTextEntry( "STRING" )
+    AddTextComponentString( text )
+    DrawNotification( false, false )
+end
