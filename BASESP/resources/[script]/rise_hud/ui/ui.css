@@ -1,0 +1,219 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,500;1,200&display=swap');
+body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    user-select: none;
+    background-color: transparent;
+}
+
+* {
+    user-select: none;
+    text-decoration: none;
+    box-sizing: border-box;
+    transition: all .1s;
+    font-family: 'Poppins', Helvetica, sans-serif;
+}
+
+p {
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 380px;
+    height: 120px;
+}
+
+.container .hud-car-status {
+    position: absolute;
+    top: 25px;
+    opacity: .6;
+    right: 20px;
+    padding: 5px;
+    color: #fff;
+    display: flex;
+    flex-direction: row;
+}
+
+.container .hud-car-status small {
+    font-size: 10px;
+    font-weight: 100;
+    text-transform: uppercase;
+}
+
+.container header {
+    position: relative;
+    width: 100%;
+    height: 50px;
+    display: flex;
+    margin-top: -70px;
+    padding: 5px 10px;
+    align-items: center;
+    flex-direction: row;
+}
+
+.container header span {
+    position: absolute;
+    margin-top: 15px;
+    right: 50px;
+    font-size: 15px;
+    color: #fff;
+    opacity: .7;
+    letter-spacing: 5px;
+    text-shadow: 1px 2px 2px rgba(0, 0, 0, 0.459);
+}
+
+.container .ammo_weapon {
+    position: absolute;
+    right: -40px;
+    margin-top: 15px;
+    display: flex;
+    flex-direction: row;
+}
+
+.container header span img {
+    position: relative;
+    top: 3px;
+    left: -5px;
+    opacity: .7;
+    transform: rotate(20deg);
+    max-height: 15px !important;
+}
+
+.container header img {
+    position: absolute;
+    right: 23px;
+    opacity: .7;
+    margin-top: 12px;
+    max-height: 40px;
+    transform: scaleX(-1);
+}
+
+.container section {
+    position: absolute;
+    width: 100%;
+    height: 50px;
+    bottom: 15px;
+    padding: 5px 10px;
+}
+
+.container section .statusBar {
+    position: absolute;
+    right: 22px;
+    margin-bottom: 8px;
+    border-radius: 30px;
+    display: flex;
+    flex-direction: row;
+}
+
+.container section .statusBar .item {
+    position: relative;
+    width: 105px;
+    height: 30px;
+    display: flex;
+    color: #fff;
+    opacity: .7;
+    padding-left: 10px;
+    align-items: center;
+    margin-left: -3px;
+    
+    background-color: rgba(0, 0, 0, 0.511);
+    clip-path: polygon(6% 0, 100% 0%, 100% 100%, 0% 100%);
+}
+
+.container section .statusBar .item .icon {
+    z-index: 101;
+}
+
+.container section .statusBar .item .itemFill {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    height: 100%;
+}
+
+.armed { display: block; opacity: 1; }
+.unarmed { display: none; opacity: 0; }
+
+.container section .statusBar .item:first-child {
+    width: 55px;
+    height: 30px;
+    z-index: 101;
+    padding-left: 5px;
+    box-shadow: 0 0 4px 1px rgba(0, 0, 0, 0.541);
+    clip-path: polygon(0 0, 100% 0%, 88% 100%, 0% 100%) !important;
+}
+
+.container footer {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    padding: 10px;
+    white-space: nowrap;
+}
+
+.container footer span {
+    position: relative;
+    opacity: .7;
+    color: #fff;
+    font-size: 10px;
+    top: 5px;
+    margin-left: 190px;
+    text-shadow: 1px 2px 2px rgba(0, 0, 0, 0.459);
+}
+
+.hud-car .cinto {
+    position: absolute;
+    display: flex;
+    opacity: .7;
+    left: 50%;
+    width: 40px;
+    height: 40px;
+    bottom: 50px;
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+    transform: translate(-50%,0%);
+    animation: blink 2s infinite ease-in-out;
+    background-color: rgba(0, 0, 0, 0.511);
+}
+
+.hud-car .cinto .blur {
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    filter: blur(8px);
+    border-radius: 50%;
+    background-color: rgb(250, 117, 117);
+}
+
+.hud-car .cinto img {
+    z-index: 101;
+    max-height: 20px;
+}
+
+@keyframes blink {
+    0% {
+        opacity: .7;
+    }
+    70% {
+        opacity: 0;
+    }
+    100% {
+        opacity: .7;
+    }
+}
+
+
+#serverLogo {
+    position: absolute;
+    top: 15px;
+    right: 85px;
+    width: 100px;
+}

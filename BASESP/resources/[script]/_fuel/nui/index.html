@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>POSTO DE GASOLINA</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="nui://game/ui/jquery.js" type="text/javascript"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/d5821cdbca.js"></script>
+</head>
+<body>
+    <div id="actionmenu">
+        <div class="outra-area">
+            <h4 style="text-align:center;margin-top: 10px;font-size:12px;letter-spacing:1px;font-weight: 300;">OPÇÕES</h4>
+            <button id="abastecer" class="botao">ABASTECER</button>
+            <br>
+            <button id="completar" class="botao">COMPLETAR</button>
+            <img src="">			
+            <div id="hover" style="display: none;"><z>Total a pagar:<br><b>R$<span>450</span></b</z></div>
+
+        </div>
+
+        <div id="container">
+              <br>
+
+            <h2>VALOR FINAL</h2>
+            <div id="topo">
+                <div id="menos" class="menos"><i class="fas fa-minus" aria-hidden="true"></i></div>
+                <input id="qtGas" type="text" style="border: 0px; outline: 0px;" value="1">
+                <div id="mais" class="mais"><i class="fas fa-plus" aria-hidden="true"></i></div>
+            </div>
+            <h2>LITROS</h2>
+            <div id="meio">
+                    <div id="menosLitros" class="menos"><i class="fas fa-minus" aria-hidden="true"></i></div>
+                    <input id="litros" type="text" style="border: 0px; outline: 0px;" value="1">
+                    <div id="maisLitros" class="mais"><i class="fas fa-plus" aria-hidden="true"></i></div>
+            </div>
+            <h2 style="text-align:center;margin-top: 5px; margin-bottom: 3px; letter-spacing:1px;">PREÇO POR LITRO</h2>
+            <div id="baixo">
+                <div id="valor">R$2,00</div>
+            </div>
+            <div id="atual">100</div><div id="barra">/</div><div id="total">100</div>
+            <div id="rodape">
+                <div id="proguess">
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

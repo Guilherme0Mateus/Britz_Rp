@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,500;1,200&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+    <link rel="stylesheet" href="ui.css">
+</head>
+
+<body id="ui" style="display: block;">
+
+    <div id="serverLogo"><img src="assets/logo.png" alt=""></div>
+
+    <div class="hud-car" id="cinto" style="display: none;">
+        <div class="cinto hud-cinto">
+            <div class="blur"></div>
+            <img src="assets/car.svg">
+        </div>
+    </div>
+    <div class="container">
+        <div id="xupeta" style="display: none;">
+            <div class="hud-car-status">
+                <div><span id="kmh">0</span> <small>km | h</small></div>
+                <span style="opacity: .6;font-weight: 100;"> / </span>
+                <div>
+                    <span><span id="gasolina">0%</span> <small id="gasolinatxt">gasolina</small></span>
+                </div>
+            </div>
+        </div>
+        <header id="weapon" class="animated unarmed">
+            <span id="bullets"><div class="ammo_weapon" id="weapon_bullets" style="white-space: nowrap;"><span id="weapon_clip">0</span></div></span>
+            <div id="weapon_image">
+                <img src="https://cdn.discordapp.com/attachments/423974115653976065/696493937229299762/Sem2.png">
+            </div>
+        </header>
+        <section>
+            <div class="statusBar">
+                <div class="item">
+                    <i class="far fa-shield-alt icon"></i>
+                    <div class="itemFill fill-shield" style="background-color:royalblue;"></div>
+                </div>
+                <div class="item">
+                    <i class="far fa-heartbeat icon"></i>
+                    <div class="itemFill fill-heart" style="background-color:seagreen;"></div>
+                    <span class="karalho" style="position: absolute;opacity: 0;">0</span>
+                </div>
+            </div>
+        </section>
+        <footer>
+            <span id="day">HOJE É DIA 3 DE DEZEMBRO - <span id="hora">18.55</span></span>
+        </footer>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/gh/cferdinandi/saferInnerHTML@1/dist/saferInnerHTML.polyfills.min.js"></script>	
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="script.js"></script>
+    <script src="font.js"></script>
+</body>
+
+</html>

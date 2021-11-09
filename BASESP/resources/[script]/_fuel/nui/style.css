@@ -1,0 +1,251 @@
+*{margin: 0; padding: 0;}
+body{
+    font-family: 'Roboto', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    overflow: hidden;
+    text-rendering: optimizeLegibility;
+    text-shadow: rgba(0, 0, 0, .01) 0 0 1px;
+    color:#fff;
+}
+
+#actionmenu{
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+#container{
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    width: 300px;
+    height: 300px;
+    background: rgba(0, 0, 0, 0.467);
+    background-image: linear-gradient(to top, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.4));
+    color: #fff;
+    font-size: 15px;
+    padding: 20px;
+    text-align: center;
+    border-radius: 25px 1px 0px 0px;
+    border: 2px solid #13ce8c;
+}
+#topo{
+    width: 100%;
+    height: 50px;
+    margin-left: 80px;
+    margin-top: 0;
+}
+
+.mais{
+    width: 30px;
+    height: 30px;
+    font-weight: 900;
+    background-color: #0d2cdb;
+    border: none;
+    border-radius: 0 4px 4px 0;
+    line-height: 30px;
+    text-align: center;
+   
+    color: #fff;
+    float: left;
+}
+input{
+    width: 140px;
+    height: 30px;
+   
+    border: none;
+    float: left;
+    font-size: 18px;
+    font-weight: 350;
+
+    text-align: center;
+    border-radius: 10px;
+}
+#qtGas{
+    width: 70px;
+    font-size: 18px;
+    font-weight: 350;
+    border-radius: 0;
+}
+#litros{
+    width: 70px;
+    font-size: 18px;
+    font-weight: 350;
+    border-radius: 0;
+}
+
+.outra-area {
+    position: absolute;
+    left: 649px;
+    right: 0px;
+    top: 0;
+    bottom: 0px;
+    margin: auto;
+    transition: 1s;
+    width: 300px;
+    height: 247px;
+    background: rgba(0, 0, 0, 0.77);
+    border-radius: 5px;
+    border: solid 2px #0d2cdb;
+    transform: perspective(400px) rotate3d(0.1, 1, 0, -10deg);
+    top: -35px;
+    transition: opacity .5s linear;
+}
+
+.menos{
+    
+    width: 30px;
+    height: 30px;
+    font-weight: 900;
+    background-color: #0d2cdb;
+    border-radius: 10px 0 0 10px;
+    line-height: 30px;
+    border-radius: 4px 0 0 4px;
+    border: none;
+    text-align: center;
+    color: #fff;
+    float: left;
+}
+
+
+#meio{
+    width: 100%;
+    height: 50px;
+    margin-top: 0px;
+    margin-left: 79px;
+}
+
+#valor{
+    width: 100%;
+    height: 27px;
+    font-size: 18px;
+   
+    color: #fff;
+   
+   
+   
+   
+   
+}
+
+#rodape{
+    position: absolute;
+    bottom: 0;
+    left: -0.5px;
+    height: 50px;
+    width: 100%;
+    background: #00000052;
+}
+
+#proguess{
+    width: 100%;
+    height: 50px;
+    border: 0.3px solid #0d2cdb;
+
+    float: left;
+    background: #530010;
+}
+
+
+
+
+
+#proguess span{
+    display: block;
+    height: 50px;
+    width: 50%;
+    background: #0d2cdb;
+}
+
+.botao{
+    width: 50.5%;
+    height: 50px;
+    font-size: 13px;
+    background: #530010;
+    letter-spacing: 2px;
+    border: 1px solid #530010;
+    border-radius: 0;
+    margin-top: 35px;
+    margin-left: 70px;
+    margin-bottom: 10px;
+    color: #fff;
+}
+.botao:hover{
+    width: 58.5%;
+    margin-left: 60px;
+
+    border: 1px solid #0d2cdb;
+    transition: 0.5s ease;
+    background: #0d2cdb;
+}
+#completar:hover{
+
+    border: 1px solid #0d2cdb;
+    background: #0d2cdb;
+    transition: 0.5s ease;
+}
+#completar{
+    border: 1px solid #530010;
+    background: #530010;
+    border-radius: 0 0 7px 0;
+    z-index: 999;
+}
+#atual, #barra, #total{
+    position: relative;
+    top: 57px;
+    left: 114px; 
+    z-index: 50;
+    font-weight: bold;
+    float: left;
+   
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    font-size: 18px;
+    text-align: center;
+
+    
+}
+.mais:hover, .menos:hover{
+    width: 32px; 
+   
+    background: #0d2cdb;;
+    transition: 0.5s ease;
+}
+
+.menos:hover{
+    
+    width: 32px; 
+    background: #530010;
+    transition: 0.5s ease;
+}
+input:focus, button:focus {
+    outline: thin dotted;
+       outline: 0px auto -webkit-focus-ring-color;
+       outline-offset: 0px;
+   }
+
+
+
+   #hover{
+    width: 140px;
+    height: 60px;
+    line-height: 40px;
+    font-size: 15px;
+    color: #fff;
+    border-radius: 10px;
+    background-color: #ff0037;
+    position: relative;
+    left: 220px;
+    top: 0px;
+    text-align: left;
+    line-height: 20px;
+    z-index: -1 !important;
+}
+#hover z{
+    position: relative;
+    top: 8px;
+    left: 7px;
+}
